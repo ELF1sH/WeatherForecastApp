@@ -1,0 +1,35 @@
+.mainBlock {
+    height: 300px;
+    position: relative;
+}
+
+.bg_light {
+    background-image: url("../../../assets/main-page-bgs/material_bg_light.jpg");
+    background-position: 300px 600px;
+    background-size: cover;
+}
+
+.bg_dark {
+    background-image: url("../../../assets/main-page-bgs/material_bg_dark.png");
+    background-position: 0 -1450px;
+    background-repeat: no-repeat;
+}
+
+.inputWrapper {
+    position: absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+}
+
+.inputHeader {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.mainInput {
+    width: 500px;
+}
