@@ -4,17 +4,22 @@ import {ThemeType} from "../../../themes";
 import {useTypedSelector} from "../../../hooks/useTypedSelector";
 import {TextField} from "@mui/material";
 import {API} from "../../../API/api";
+import {deleteData, fetchData} from "../../../store/ActionCreators/LocationsActionCreators";
+import {useDispatch} from "react-redux";
 
 export const MainPageHeader : React.FunctionComponent = () => {
 
     const [value, setValue] = useState<string>("")
-    console.log(value)
-
-    const api = useMemo(() => new API, [])
+    const locationsState = useTypedSelector(state => state.locations)
+    console.log(locationsState)
+    const dispatch = useDispatch()
 
     const onChangeHandler = (e : React.ChangeEvent<HTMLInputElement>) => {
         setValue(e.target.value)
-        api.getLocations(e.target.value)
+        if (e.target.value.length > 0)
+            dispatch(fetchData(e.target.value))
+        else
+            dispatch(deleteData())
     }
 
     const state = useTypedSelector(state => state.theme)

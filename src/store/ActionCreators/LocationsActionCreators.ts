@@ -1,4 +1,8 @@
 import {LocationsActionType} from "../ActionTypes";
+import {ThunkDispatch} from "redux-thunk";
+import {LocationsState} from "../reducers/LocationsReducer";
+import {API} from "../../API/api";
+import {Dispatch} from "redux";
 
 export interface LocationsAction {
     type: LocationsActionType
@@ -26,21 +30,29 @@ export const deleteData = () : LocationsAction => {
     }
 }
 
-export const fetchData = () : LocationsAction => {
+export const setLoadingTrue = () : LocationsAction => {
     return {
-        type: LocationsActionType.FETCH_DATA
+        type: LocationsActionType.SET_LOADING_TRUE
+    }
+}
+
+export const fetchData = (keyWord : string) => {
+    return async (dispatch : Dispatch<LocationsAction>) => {
+        try {
+            dispatch(setLoadingTrue())
+            const api = new API()
+            const response = await api.getLocations(keyWord)
+            dispatch(setData(null, response.data))
+        }
+        catch (e) {
+            dispatch(setData("Error", []))
+        }
     }
 }
 
 export const setData = (
     error: string | null,
-    locations: Array<{
-        title: string,
-        locationType: string,
-        forecastId: number,
-        latitude: number,
-        longitude: number
-}>) : LocationsActionSetData => {
+    locations: Array<Location>) : LocationsActionSetData => {
     return {
         type: LocationsActionType.SET_DATA,
         payload: {

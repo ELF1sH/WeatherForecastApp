@@ -5,5 +5,6 @@ export enum ThemeActionType {
 export enum LocationsActionType {
     FETCH_DATA,
     SET_DATA,
-    DELETE_DATA
+    DELETE_DATA,
+    SET_LOADING_TRUE
 }

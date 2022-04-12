@@ -30,6 +30,9 @@ export const locationsReducer = (state : LocationsState = initialState, action: 
             newState.error = null
             newState.locations = []
             return newState
+        case LocationsActionType.SET_LOADING_TRUE:
+            newState.loading = true
+            return newState
         default:
             return newState
     }
