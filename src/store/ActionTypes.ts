@@ -3,8 +3,13 @@ export enum ThemeActionType {
 }
 
 export enum LocationsActionType {
-    FETCH_DATA,
-    SET_DATA,
-    DELETE_DATA,
-    SET_LOADING_TRUE
+    SET_DATA = 1,
+    DELETE_DATA = 2,
+    SET_LOADING_TRUE = 3
+}
+
+export enum ChosenLocationType {
+    SET_LOADING_TRUE,
+    SET_LOCATION,
+    SET_FORECASTS,
 }

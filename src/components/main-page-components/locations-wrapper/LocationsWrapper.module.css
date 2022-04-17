@@ -1,0 +1,20 @@
+.locationsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.locationCard {
+    padding: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: .2s background-color !important;
+}
+.locationCard:hover {
+    background-color: floralwhite;
+}
+.locationCard .header {
+    text-align: center;
+}
+.locationCard .text {
+    font-size: 13px;
+}

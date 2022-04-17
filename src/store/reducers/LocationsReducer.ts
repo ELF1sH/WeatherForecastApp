@@ -15,15 +15,11 @@ const initialState : LocationsState = {
 
 export const locationsReducer = (state : LocationsState = initialState, action: LocationsAction | LocationsActionSetData) => {
     const newState : LocationsState = state
-
     switch (action.type) {
         case LocationsActionType.SET_DATA:
             newState.loading = false
             newState.error = (action as LocationsActionSetData).payload.error
             newState.locations = (action as LocationsActionSetData).payload.locations
-            return newState
-        case LocationsActionType.FETCH_DATA:
-            newState.loading = true
             return newState
         case LocationsActionType.DELETE_DATA:
             newState.loading = false
