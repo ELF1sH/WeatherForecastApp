@@ -1,0 +1,30 @@
+.circProgress {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wrapper {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.locationWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.forecastsWrapper {
+    display: flex;
+}
+.forecast {
+    margin: 10px;
+    text-align: center;
+}
+.forecast .date {
+    margin-bottom: 5px;
+}
